@@ -16,9 +16,16 @@ export default class EnterPage extends Component {
         username: '',
         clickedSun: false,
         password: '',
-        isLoginFormRemoved: true
+        isLoginFormRemoved: true,
+        deactivateCss: false
       };
      
+
+      deactivateCss = () => {
+        console.log("inside EnterPage in deactivateCss")
+        // this.setState({deactivateCss: true})
+      }
+
     
    
   
@@ -44,7 +51,7 @@ export default class EnterPage extends Component {
 
     handle_login = (e, data) => {
       e.preventDefault();
-      console.log("in EnterPage in handle_login", data)
+      // console.log("in EnterPage in handle_login", data)
 
       fetch('http://localhost:8000/token-auth/', {
         method: 'POST',
@@ -67,7 +74,8 @@ export default class EnterPage extends Component {
             logged_in: true,
             displayed_form: '',
             username: json.user.username,
-            password: data.password
+            password: data.password,
+            deactivateCss: true
           });
       
         })
@@ -138,10 +146,10 @@ export default class EnterPage extends Component {
       let form;
       switch (this.state.displayed_form) {
         case 'login':
-          form = <LoginForm handle_login={this.handle_login} logged_in={this.state.logged_in} />;
+          form = <LoginForm handle_login={this.handle_login} logged_in={this.state.logged_in} deactivateCss={this.state.deactivateCss} />;
           break;
         case 'signup':
-          form = <SignupForm handle_signup={this.handle_signup} />;
+          form = <SignupForm handle_signup={this.handle_signup} deactivateCss={this.state.deactivateCss} />;
           break;
         default:
           form = null;
@@ -158,12 +166,17 @@ export default class EnterPage extends Component {
           title = 'mainHeader'
       }
 
-      console.log(this.state.clickedSun)
+      let css;
+      if(true) {
+        css = "signuploginpage starrybackground"
+      }
+
+      console.log("deactivateCss", this.state.deactivateCss)
 
 
     
         return (
-            <div className={this.state.clickedSun ? "signuploginpage starrybackground" : null}>
+            <div className={this.state.clickedSun ? css : null}>
 
               {/* <h1 className={title}>The stars await</h1> */}
 
@@ -175,6 +188,7 @@ export default class EnterPage extends Component {
                     handle_logout={this.handle_logout}
                     isLoginFormRemoved={this.state.isLoginFormRemoved}
                     removeLoginForm={this.removeLoginForm}
+                    deactivateCss={this.state.deactivateCss}
                     
                 />) : null}
 
@@ -192,7 +206,7 @@ export default class EnterPage extends Component {
                     : 'Please Log In'}
                 </h3> */}
 
-                <MainPage logged_in={this.state.logged_in} username={this.state.username} password={this.state.password} handle_logout={this.handle_logout} remove_loginform={this.removeLoginForm}/>
+                <MainPage logged_in={this.state.logged_in} username={this.state.username} password={this.state.password} handle_logout={this.handle_logout} remove_loginform={this.removeLoginForm} deactivateCss={this.state.deactivateCss}/>
             </div>
         )
     }

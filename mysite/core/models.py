@@ -11,7 +11,7 @@ class Horoscope(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     username = models.CharField(max_length=100)
     text = models.TextField()
-    created_at = models.TimeField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"ID: {self.id}, user: {self.user}, Text: {self.text}"

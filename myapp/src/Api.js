@@ -10,13 +10,14 @@ class Api extends Component {
         displayHoro: '',
         username: this.props.username,
         password: this.props.password,
-        allHoroscopes: null
+        allHoroscopes: null,
+        shouldHoroscopeAppear: true,
+        shouldAllHoroscopesAppear: true
     }
     
 
 
     handleClick = () => {
-        console.log('clicked')
         const url = 'https://gentle-atoll-81187.herokuapp.com/'
         axios.get(url).then( response => {this.setState({displayHoro: response.data})
             
@@ -24,6 +25,7 @@ class Api extends Component {
     }).catch(error => {
         console.log(error)
     })
+    this.setState({shouldHoroscopeAppear: true, shouldAllHoroscopesAppear: false})
 
     }
 
@@ -40,8 +42,14 @@ class Api extends Component {
             .then( response => response.json())
             .then( response =>  this.setState({allHoroscopes: response}))
             .catch( error => console.log(error))
+            this.setState({shouldHoroscopeAppear: false, shouldAllHoroscopesAppear: true, displayHoro: ''});  
+                    //   console.log("in Api in handleClickGetAll", this.state)
     }
 
+
+    disappearHoroscope = () => {
+        this.setState({displayHoro: ''})
+    }
 
 
 
@@ -83,7 +91,7 @@ class Api extends Component {
             <div>
            {stuff}
           
-           <DisplayHoroscope displayHoro={this.state.displayHoro} username={this.props.username} password={this.props.password} allHoroscopes={this.state.allHoroscopes}/> 
+           <DisplayHoroscope displayHoro={this.state.displayHoro} username={this.props.username} password={this.props.password} allHoroscopes={this.state.allHoroscopes} disappearHoroscope={this.disappearHoroscope} shouldHoroscopeAppear={this.state.shouldHoroscopeAppear} shouldAllHoroscopesAppear={this.state.shouldAllHoroscopesAppear}/> 
             {/* {displaythehoroscope} */}
            </div>
         )

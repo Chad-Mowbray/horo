@@ -13,7 +13,7 @@ class MainPage extends Component {
 
 
             let logged_in_nav = (
-                <div>
+                <div className="mainPageContainer">
                     
                         <p className="logout" onClick={this.props.handle_logout}>logout</p>
                         

@@ -3,13 +3,8 @@ import GetAllHoroscopes from './GetAllHoroscopes'
 
 export default class DisplayHoroscope extends Component {
 
-    // username = this.props.username
+   
 
-    // requestBody = {
-    //     username: this.username,
-    //     text: 'this is a post test in state of DisplayHoroscopes'
-    // }
-  
 
     saveClicked = () => {
         fetch("http://localhost:8000/core/horoscopes/", {
@@ -25,6 +20,8 @@ export default class DisplayHoroscope extends Component {
             }).then( resp => resp.json())
             // .then( res => this.props.newMovie(res))
             .catch( error => console.log(error))
+
+            this.props.disappearHoroscope()
     }
 
 
@@ -54,8 +51,8 @@ export default class DisplayHoroscope extends Component {
 
         return (
             <div>
-                {displaythehoroscope}
-                <GetAllHoroscopes username={this.props.username} password={this.props.password} allHoroscopes={this.props.allHoroscopes}/>
+                {this.props.shouldHoroscopeAppear ? <div>{displaythehoroscope}</div> : null}
+                <GetAllHoroscopes username={this.props.username} password={this.props.password} allHoroscopes={this.props.allHoroscopes} shouldAllHoroscopesAppear={this.props.shouldAllHoroscopesAppear}/>
                 
             </div>
         )

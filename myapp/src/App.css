@@ -10,6 +10,7 @@ body {
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+  z-index: -50;
 
 }
 
@@ -92,10 +93,11 @@ body {
 }
 
 .starrybackground {
-  height: 100vh;
+  height: 1000vh;
   width: auto;
   background-image: url('starfadeup.png');
   background-position: 75% 0%;
+  background-repeat: no-repeat;
   z-index: -1;
 }
 
@@ -139,8 +141,8 @@ body {
 }
 
 
-/* 
 
+/* 
 .apiPage {
   height: 100vh;
   width: auto;
@@ -148,15 +150,18 @@ body {
   background-position: 75% 75%;
   background: linear-gradient(0deg, #442266 , #19012b);
   background-size: 400% 400%;
-  animation: shiftApi 3s ease;
  
-}
-
-@keyframes shiftApi { 
-  
-  0%{background-position:40% 90%}
-  100%{background-position:75% 30%} 
 } */
+
+
+.mainPageContainer {
+
+
+  
+  height: 100%;
+  background-attachment: fixed;
+ 
+} 
 
 
 
@@ -236,8 +241,8 @@ body {
   left: 50.5%;
   width: 500px;
   height: 400px;
-  margin-top: -200px; /* Half the height */
-  margin-left: -250px; /* Half the width */
+  margin-top: -200px; 
+  margin-left: -250px; 
   text-align: center;
 
 }
