@@ -1,0 +1,243 @@
+* {
+  padding: 0;
+  margin: 0;
+ 
+}
+
+body {
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+
+}
+
+.mainHeader {
+  text-align: center;
+  opacity: .8;
+}
+
+.mainHeaderGone {
+  text-align: center;
+  opacity: 0;
+  animation: fadeOut 2s linear;
+}
+
+@keyframes fadeOut {
+  0% {opacity: .8;}
+  100% {opacity: 0}
+}
+
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50.5%;
+  width: 300px;
+  height: 300px;
+  margin-top: -150px; /* Half the height */
+  margin-left: -150px; /* Half the width */
+  animation: circle 40s linear infinite;
+  transform-origin: 50% 50%;
+  opacity: .3;
+  outline: none;
+}
+
+
+@keyframes circle {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+} 
+
+
+.sunUp {
+  position: absolute;
+  top: 50%;
+  left: 50.5%;
+  width: 300px;
+  height: 300px;
+  margin-top: -150px; /* Half the height */
+  margin-left: -150px; /* Half the width */
+  opacity: .3;
+  outline: none;
+}
+
+
+.starfadeup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: .8;
+  transform: translateY(-100px);
+  z-index: -1;
+}
+
+.sun:hover {
+    opacity: .5;
+}
+
+.signuploginpage {
+  height: 100vh;
+  width: auto;
+  background-image: url('starfadeup.png');
+  background-position: 75% 0%;
+  background: linear-gradient(0deg, #442266 , #19012b);
+  background-size: 400% 400%;
+  animation: blackPurple 3s ease;
+}
+
+@keyframes blackPurple { 
+  0%{background-position:26% 100%}
+  100%{background-position:75% 0%} 
+}
+
+.starrybackground {
+  height: 100vh;
+  width: auto;
+  background-image: url('starfadeup.png');
+  background-position: 75% 0%;
+  z-index: -1;
+}
+
+.loginSignup {
+  text-align: center;
+  font-size: 3em;
+  opacity: .7;
+}
+
+.loginSignupUlLeft {
+ 
+  float: left;
+  margin-top: 200px;
+  list-style-type: none;
+  padding-left: 50px;
+  
+}
+
+.loginSignupUlRight {
+  float: right;
+  margin-top: 200px;
+  list-style-type: none;
+  padding-right: 50px;
+}
+
+
+.loginFormDiv {
+  height: 200px;
+  width: 200px;
+  margin-top: 260px;
+  float: left;
+  margin-left: -120px;
+}
+
+.signupFormDiv {
+  height: 200px;
+  width: 200px;
+  margin-top: 260px;
+  float: right;
+  margin-right: -200px;
+}
+
+
+/* 
+
+.apiPage {
+  height: 100vh;
+  width: auto;
+  background-image: url('starfadeup.png');
+  background-position: 75% 75%;
+  background: linear-gradient(0deg, #442266 , #19012b);
+  background-size: 400% 400%;
+  animation: shiftApi 3s ease;
+ 
+}
+
+@keyframes shiftApi { 
+  
+  0%{background-position:40% 90%}
+  100%{background-position:75% 30%} 
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+.inputText {
+  color: white;
+  font-family: 'Atomic Age', cursive;
+  font-size: 4em;
+}
+
+/* .userBtn{
+  background-color: #442266;
+  height: 20px;
+  width: auto;
+} */
+
+.button {
+  color: #442266;
+  background-color: #f3f3f3;
+  padding: 5px 10px;
+  margin: .5px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 0.8em;
+  outline: none;
+  font-family: 'Atomic Age', cursive;
+  cursor: pointer;
+  opacity: .9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#horoscopeText {
+  font-size: 1.4em;
+}
+
+/* 
+.getHoroscopeButton {
+  margin-top: 0;
+  float: left;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  flex: auto;
+  opacity: .8;
+  
+} */
+
+.logout {
+  cursor: pointer;
+  padding-bottom: 10px;
+  
+}
+
+.horoscopeContainer {
+  position: absolute;
+  top: 50%;
+  left: 50.5%;
+  width: 500px;
+  height: 400px;
+  margin-top: -200px; /* Half the height */
+  margin-left: -250px; /* Half the width */
+  text-align: center;
+
+}
